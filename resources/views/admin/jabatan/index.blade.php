@@ -7,13 +7,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">INPUT JENIS</h1>
+                        <h1 class="m-0">JABATAN</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Data Jenis</li>
-                            <li class="breadcrumb-item active">Input</li>
+                            <li class="breadcrumb-item active">Data Jabatan</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -23,41 +22,50 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card card-primary">
-                        <form action="{{ route('jenis.store') }}" method="post">
-                            @csrf
+            <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">INPUT DATA JENIS</h3>
-
-                                <div class="card-tools">
-                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"
-                                        title="Collapse">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                </div>
+                                <h3 class="card-title">Data Jabatan</h3>
                             </div>
+                            <!-- /.card-header -->
                             <div class="card-body">
-                                <div class="form-group">
-                                    <label for="inputName">NAMA JENIS</label>
-                                    <input type="text" name="nama" id="inputClientCompany" class="form-control">
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-1 text-center">#</th>
+                                            <th class="text-center">NAMA</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($data as $item)
+                                            <tr>
+                                                <td class="text-center">{{ $loop->iteration }}</td>
+                                                <td>{{ $item->nama }}</td>
+                                                <td class="text-center">
+                                                    {{-- <a href="{{route('jenis.show', $item->id)}}" class="btn btn-info btn-sm">Lihat</a> --}}
+                                                    <a href="{{ route('jabatan.edit', $item->id) }}"
+                                                        class="btn btn-warning btn-sm">Edit</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
 
-                                </div>
-
+                                </table>
                             </div>
-                            <div class="card-footer">
-                                <a href="{{ route('jenis.create') }}" class="btn btn-secondary">Cancel</a>
-                                <input type="submit" value="submit" class="btn btn-success float-right">
+                            <div class="card-footer clearfix">
+                                <a href="{{ route('jabatan.create') }}" class="btn btn-primary float-right"><i
+                                        class="fas fa-plus">
+                                    </i> Tambah Data</a>
                             </div>
-                        </form>
-                        <!-- /.card-body -->
+                            <!-- /.card-body -->
+                        </div>
                     </div>
-                    <!-- /.card -->
                 </div>
-            </div>
+                <!-- /.row (main row) -->
+            </div><!-- /.container-fluid -->
         </section>
-        <!-- /.container-fluid -->
         <!-- /.content -->
     </div>
 @endsection

@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             AsetSeeder::class,
             LabSeeder::class,
             LaporanSeeder::class,
+            JabatanSeeder::class,
         ]);
     }
 }

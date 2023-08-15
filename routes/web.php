@@ -9,9 +9,11 @@ use App\Http\Controllers\RuangController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\HakaksesController;
 use App\Http\Controllers\HomeAdminController;
+use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\LabController;
 use App\Http\Controllers\LaporanController;
-use App\Models\Laporan;
+use App\Http\Controllers\PinjamAsetController;
+use App\Http\Controllers\UserProfilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +45,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::resource('/lab', LabController::class);
     Route::resource('/laporan', LaporanController::class);
     Route::resource('/hakakses', HakaksesController::class);
-
+    Route::resource('pengguna', UserProfilController::class);
+    Route::resource('jabatan', JabatanController::class);
+    Route::resource('pinjam', PinjamAsetController::class);
 
 });
 
