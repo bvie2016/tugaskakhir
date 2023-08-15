@@ -41,7 +41,7 @@
                         <div class="form-group">
                             <label for="inputName">JENIS BARANG</label>
                             <select name="jenis_id" id="" class="form-control" required>
-                            <option>--pilih--</option>
+                            <option value="">--pilih--</option>
                             @foreach ($jenis as $item)
                                 <option value="{{$item->id}}">{{$item->nama}}</option>
                             @endforeach
@@ -50,7 +50,7 @@
                           <div class="form-group">
                             <label for="inputName">TYPE BARANG</label>
                             <select name="tipe_id" id="" class="form-control" required>
-                              <option>--pilih--</option>
+                              <option value="">--pilih--</option>
                               @foreach ($tipe as $item)
                                   <option value="{{$item->id}}">{{$item->nama}}</option>
                               @endforeach
@@ -59,7 +59,7 @@
                           <div class="form-group">
                             <label for="inputName">RUANGAN</label>
                             <select name="ruang_id" id="" class="form-control" required>
-                              <option>--pilih--</option>
+                              <option value="">--pilih--</option>
                               @foreach ($ruang as $item)
                                   <option value="{{$item->id}}">{{$item->namaruangan}}</option>
                               @endforeach
@@ -67,11 +67,11 @@
                           </div>
                           <div class="form-group">
                             <label for="inputName">KETERANGAN</label>
-                            <input type="text" name="keterangan" id="inputClientCompany" class="form-control">
+                            <input type="text" name="keterangan" id="inputClientCompany" class="form-control" required>
                           </div>
                           <div class="form-group">
                             <label for="inputName">PELAPOR</label>
-                            <input type="text" name="pelapor" id="inputClientCompany" class="form-control">
+                            <input type="text" name="pelapor" id="inputClientCompany" class="form-control" required>
                           </div>
                   </div>
                   <div class="card-footer">

@@ -63,7 +63,7 @@
                           <div class="form-group">
                             <label for="inputName">RUANGAN</label>
                             <select name="ruang_id" id="" class="form-control" required>
-                              <option>--pilih--</option>
+                              <option value="">--pilih--</option>
                               @foreach ($ruang as $item)
                                   <option value="{{$item->id}}">{{$item->namaruangan}}</option>
                               @endforeach

@@ -35,13 +35,9 @@
         <div class="btn-group">
           <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" data-offset="-52">
             <i class="fas fa-bars"></i>
+        
           </button>
-          <div class="dropdown-menu" role="menu">
-            <a href="#" class="dropdown-item">Add new event</a>
-            <a href="#" class="dropdown-item">Clear events</a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">View calendar</a>
-          </div>
+        
         </div>
         <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse">
           <i class="fas fa-minus"></i>
@@ -129,7 +125,7 @@
           <!-- ./col -->
 
           <!-- ./col -->
-          <div class="col-lg-2 col-6">
+          <div class="col-lg-2 col-3">
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
@@ -145,7 +141,7 @@
           <!-- ./col -->
 
           <!-- ./col -->
-          <div class="col-lg-2 col-6">
+          <div class="col-lg-2 col-3">
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
