@@ -55,6 +55,7 @@ class AsetController extends Controller
             'kode'=>$request->kode,
             'nama'=>$request->nama,
             'keterangan'=>$request->keterangan,
+            'jumlah'=>$request->jumlah,
             'user_id'=> auth()->user()->id,
 
         ]);

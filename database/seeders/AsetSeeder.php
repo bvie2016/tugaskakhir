@@ -19,9 +19,10 @@ class AsetSeeder extends Seeder
             'tipe_id'=>1,
             'ruang_id'=>1,
             'user_id'=>1,
-            'kode'=>'kode',
-            'nama'=>'nama',
+            'kode'=>'P001',
+            'nama'=>'Pulpen',
             'tahun_pengadaan'=>'2022',
+            'jumlah' => 2,
             'keterangan'=>'Masih Digunakan'
         ]);
     }

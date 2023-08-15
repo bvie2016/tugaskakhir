@@ -7,12 +7,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">PENGGUNA</h1>
+                        <h1 class="m-0">ASET KELUAR</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Data Pengguna</li>
+                            <li class="breadcrumb-item active">Data Aset Keluar</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -28,7 +28,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title"></h3>
+                                <h3 class="card-title">Data Aset Keluar</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -36,35 +36,41 @@
                                     <thead>
                                         <tr>
                                             <th class="col-md-1 text-center">#</th>
-                                            <th class="col-md-1 text-center">NIDN</th>
-                                            <th class="col-md-3 text-center">NAMA</th>
-                                            <th class="col-md-2 text-center">JABATAN</th>
-                                            <th class="col-md-2 text-center">HAK AKSES</th>
-                                            <th class="col-md-2 text-center">AKSI</th>
+                                            <th class="text-center">NAMA</th>
+                                            <th class="text-center">JABATAN</th>
+                                            <th class="text-center">NAMA BARANG</th>
+                                            <th class="text-center">JENIS BARANG</th>
+                                            <th class="text-center">TIPE BARANG</th>
+                                            <th class="text-center">TANGGAL PINJAM</th>
+                                            <th class="text-center">STATUS</th>
+                                            <th class="text-center">AKSI</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($data as $item)
                                             <tr>
                                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                                <td> {{ $item->no_pegawai }} </td>
-                                                <td> {{ $item->nama }} </td>
-                                                <td> {{ $item->jabatan->nama }} </td>
-                                                <td> {{ $item->user->roles->pluck('name')[0] }} </td>
+                                                <td>{{ $item->user->name }}</td>
+                                                <td>{{ $item->user->name }}</td>
+                                                <td>{{ $item->aset->nama }}</td>
+                                                <td>{{ $item->aset->jenis->nama }}</td>
+                                                <td>{{ $item->aset->tipe->nama }}</td>
+                                                <td class="text-center">{{ $item->created_at }}</td>
+                                                <td class="text-center">{{ $item->status }}</td>
                                                 <td class="text-center">
-                                                    <a href="{{ route('dosen.show', $item->id) }}"
-                                                        class="btn btn-info btn-sm">Lihat</a>
-                                                    <a href="{{ route('dosen.edit', $item->id) }}"
+                                                    {{-- <a href="{{route('jenis.show', $item->id)}}" class="btn btn-info btn-sm">Lihat</a> --}}
+                                                    <a href="{{ route('jabatan.edit', $item->id) }}"
                                                         class="btn btn-warning btn-sm">Edit</a>
                                                 </td>
                                             </tr>
                                         @endforeach
+
                                 </table>
                             </div>
                             <div class="card-footer clearfix">
-                                <a href="{{ route('pengguna.create') }}" class="btn btn-primary float-right"><i
+                                <a href="{{ route('pinjam.create') }}" class="btn btn-primary float-right"><i
                                         class="fas fa-plus">
-                                    </i> Tambah Pengguna</a>
+                                    </i> Tambah Data</a>
                             </div>
                             <!-- /.card-body -->
                         </div>

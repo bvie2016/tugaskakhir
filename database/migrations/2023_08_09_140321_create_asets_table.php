@@ -22,7 +22,8 @@ class CreateAsetsTable extends Migration
             $table->string('kode');
             $table->string('nama');
             $table->string('tahun_pengadaan');
-            $table->string('keterangan');
+            $table->string('keterangan')->nullable();
+            $table->bigInteger('jumlah')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');

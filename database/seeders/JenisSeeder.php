@@ -15,7 +15,10 @@ class JenisSeeder extends Seeder
     public function run()
     {
         Jenis::create([
-            'nama' => 'nama'
+            'nama' => 'Sarana'
+        ]);
+        Jenis::create([
+            'nama' => 'Prasaran'
         ]);
     }
 }
