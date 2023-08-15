@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Jenis;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeAdminController extends Controller
 {
@@ -15,7 +16,16 @@ class HomeAdminController extends Controller
     public function index()
     {
         $data = Jenis::all();
-        return view('admin.dashboard.index', compact('data'));
+        $admin = DB::table('user_profils as up')
+            ->join('jabatans as j', 'j.id', '=', 'up.jabatan_id')
+            ->where('j.nama', 'like', '%admin%')
+            ->select('up.id')->count('up.id');
+        $dosen = DB::table('user_profils as up')
+            ->join('jabatans as j', 'j.id', '=', 'up.jabatan_id')
+            ->where('j.nama', 'like', '%dosen%')
+            ->select('up.id')->count('up.id');
+        // dd($admin);
+        return view('admin.dashboard.index', compact(['data', 'admin', 'dosen']));
     }
 
     /**

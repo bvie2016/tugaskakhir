@@ -45,9 +45,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::resource('/lab', LabController::class);
     Route::resource('/laporan', LaporanController::class);
     Route::resource('/hakakses', HakaksesController::class);
-    Route::resource('pengguna', UserProfilController::class);
-    Route::resource('jabatan', JabatanController::class);
-    Route::resource('pinjam', PinjamAsetController::class);
+    Route::resource('/pengguna', UserProfilController::class);
+    Route::resource('/jabatan', JabatanController::class);
+    Route::resource('/pinjam', PinjamAsetController::class);
 
 });
 

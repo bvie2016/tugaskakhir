@@ -45,7 +45,8 @@ class UserProfilController extends Controller
         $user = User::create([
             'name' => $request->nama,
             'email' => $request->email,
-            'password' => $request->password,
+            'password'=>bcrypt($request->password)
+            
         ]);
 
         if ($user){
@@ -62,7 +63,7 @@ class UserProfilController extends Controller
             ]);
 
             if ($profil) {
-                return redirect()->route('user.index');
+                return redirect()->route('pengguna.index');
             }
         }
 

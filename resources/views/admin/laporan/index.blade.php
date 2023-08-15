@@ -28,76 +28,40 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title"></h3>
-              </div>
+              <h3 class="card-title">Daftar Laporan</h3>
+            </div>
             <!-- /.card-header -->
             <div class="card-body">
-            <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
-              <div class="row">
-                <div class="col-sm-12 col-md-6">
-                  <div class="dt-buttons btn-group flex-wrap"> 
-                    <button class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="example1" type="button">
-                      <span>Excel</span>
-                    </button> 
-                    <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button">
-                      <span>PDF</span>
-                    </button> 
-                    <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1" type="button">
-                      <span>Print</span>
-                    </button>
-                    <div class="btn-group">
-                    <button class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis" tabindex="0" aria-controls="example1" type="button" aria-haspopup="true">
-                      </button>
-                    </div> 
-                  </div>
-                </div>
-                <div class="col-sm-12 col-md-6">
-                  <div id="example1_filter" class="dataTables_filter">
-                    <label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1">
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-12">
-                  <table id="example1" class="table table-bordered table-striped dataTable dtr-inline collapsed" aria-describedby="example1_info">
-                      <table id="example1" class="table table-bordered table-striped">
-                        <thead>
-                        <tr>
-                          <th>JENIS BARANG</th>
-                          <th>TYPE BARANG</th>
-                          <th>RUANG</th>
-                          <th>KETERANGAN</th>
-                          <th>PELAPOR</th>
-                          <th>AKSI</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                          @foreach ($data as $item)
-                          <tr>
-                            <td> {{$item->jenis->nama}} </td>
-                            <td> {{$item->tipe->nama}} </td>
-                            <td> {{$item->ruang->namaruangan}} </td>
-                            <td> {{$item->keterangan}}</td>
-                            <td> {{$item->user->name}}</td>
-                            <td>
-                              <a href="{{route('laporan.show', $item->id)}}" class="btn btn-info btn-sm">Lihat</a>
-                              <a href="{{route('laporan.edit', $item->id)}}" class="btn btn-warning btn-sm">Edit</a>
-                            </td>
-                          </tr>   
-                          @endforeach
-                        </tr>
-                      </table>
-                      <div class="card-footer clearfix">
-                        
-                        <a href="{{route('laporan.create')}}" class="btn btn-primary float-right"><i class="fas fa-plus">
-                          </i> Tambah Data</a>
-                      </div>
-                    </div>
-                    <!-- /.card-body -->
-                  </div>
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>JENIS BARANG</th>
+                    <th>TYPE BARANG</th>
+                    <th>RUANG</th>
+                    <th>KETERANGAN</th>
+                    <th>PELAPOR</th>
+                    <th>AKSI</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach ($data as $item)
+                  <tr>
+                    <td> {{$item->jenis->nama}} </td>
+                    <td> {{$item->tipe->nama}} </td>
+                    <td> {{$item->ruang->namaruangan}} </td>
+                    <td> {{$item->keterangan}}</td>
+                    <td> {{$item->user->name}}</td>
+                    <td>
+                      <a href="{{route('laporan.show', $item->id)}}" class="btn btn-info btn-sm">Lihat</a>
+                      <a href="{{route('laporan.edit', $item->id)}}" class="btn btn-warning btn-sm">Edit</a>
+                    </td>
+                  </tr>   
+                  @endforeach
+                </tbody>
+              </table>
             </div>
-        </div>
+            <!-- /.card-body -->
+          </div>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     </section>
@@ -112,17 +76,24 @@
 @endpush
 
 @push('javascript')
+<!-- DataTables  & Plugins -->
 <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.j')}}s"></script>
 <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
 <script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
 <script src="{{ asset('plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
 <script src="{{ asset('plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{ asset('plugins/jszip/jszip.min.js')}}"></script>
+<script src="{{ asset('plugins/pdfmake/pdfmake.min.js')}}"></script>
+<script src="{{ asset('plugins/pdfmake/vfs_fonts.js')}}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
 <script>
     $(function () {
       $("#example1").DataTable({
         "responsive": true, "lengthChange": false, "autoWidth": false,
-        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        "buttons": ["copy", "csv", "excel", "pdf", "print"]
       }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
       
     });

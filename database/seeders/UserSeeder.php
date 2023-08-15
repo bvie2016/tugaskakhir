@@ -25,6 +25,8 @@ class UserSeeder extends Seeder
         ]);
 
         $data->assignRole('admin');
+        $data->assignRole('dosen');
+        $data->assignRole('sarpras');
     }
     
 }

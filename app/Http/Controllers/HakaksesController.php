@@ -18,6 +18,7 @@ class HakaksesController extends Controller
         $data=Role::all();
         return view('admin.hakakses.index', compact('data'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
